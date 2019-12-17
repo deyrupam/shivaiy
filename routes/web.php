@@ -16,5 +16,13 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::resource('/category', 'CategoryController');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('/subcategory', 'SubCategoryController');
+// Route::get('/category', 'CategoryController@index');
+
+//  Route::post('/category/add', 'CategoryController@store');
+
+//  Route::get('/home', 'HomeController@index')->name('home');
+
+
