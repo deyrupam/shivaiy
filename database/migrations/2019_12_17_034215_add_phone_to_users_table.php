@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddMultipleCloumnsToCategories extends Migration
+class AddPhoneToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class AddMultipleCloumnsToCategories extends Migration
      */
     public function up()
     {
-        Schema::table('categories', function (Blueprint $table) {
-            $table->string('description');
-            $table->boolean('isactive');
+        Schema::table('users', function (Blueprint $table) {
+            $table->integer('phone')->after('email_verified_at');
         });
     }
 
@@ -26,8 +25,8 @@ class AddMultipleCloumnsToCategories extends Migration
      */
     public function down()
     {
-        Schema::table('categories', function (Blueprint $table) {
-            $table->dropColumn(['description',  'isactive']);
+        Schema::table('users', function (Blueprint $table) {
+            //
         });
     }
 }
