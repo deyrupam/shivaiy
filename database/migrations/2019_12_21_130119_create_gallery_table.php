@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddToSubcategoryIdProductsTable extends Migration
+class CreateGalleryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddToSubcategoryIdProductsTable extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->integer('sub_category_id')->after('category_id');
+        Schema::create('gallery', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('product_id');
+            $table->string('image');
         });
     }
 
@@ -25,8 +27,6 @@ class AddToSubcategoryIdProductsTable extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('gallery');
     }
 }
