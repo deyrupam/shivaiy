@@ -970,6 +970,8 @@
         <script src="{{url('assets/js/demo/tables-footable.js') }}"></script>
 
         <script src="{{url('assets/js/demo/form-switchery.js') }}"></script>
+        <script src="{{url('assets/js/main.js') }}"></script>
+
 
     </body>
 </html>

@@ -15,7 +15,7 @@ class AddMultipleCloumnsToCategories extends Migration
     {
         Schema::table('categories', function (Blueprint $table) {
             $table->string('description');
-            $table->boolean('isactive');
+            $table->enum('isactive', [0,1])->default(1);
         });
     }
 

@@ -33,7 +33,7 @@
                                     </div>
                                     <!--Block Styled Form -->
                                     <!--===================================================-->
-                                    <form method="post" action="{{ url('category/create') }}" enctype="multipart/form-data">
+                                    <form >
                                     @csrf
                                         <div class="panel-body">
                                             <div class="row">
@@ -61,7 +61,7 @@
                                             </div>
                                         </div>
                                         <div class="panel-footer text-right">
-                                            <button class="btn btn-info" type="submit">Save</button>
+                                            <button class="btn btn-info" id="add_category">Save</button>
                                         </div>
                                     </form>
                                     <!--===================================================-->
@@ -92,13 +92,22 @@
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label" for="demo-hor-inputpass">Category</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" placeholder="Category" id="demo-hor-inputpass" class="form-control">
+                                                    <select  name="S_category_id" id="S_category_id" class="form-control">
+                                                    <option value="default">Choose a category...</option>
+                                                    @foreach($categories as $cat)
+                                                    
+                                                    <option value="{{ $cat->id }}">{{ $cat->category_name }}</option>
+                                                    
+                                                    @endforeach
+
+                                                    
+                                                    </select>
                                                 </div>
                                             </div>
                                             
                                         </div>
                                         <div class="panel-footer text-right">
-                                            <button class="btn btn-info" type="submit">Save</button>
+                                            <button class="btn btn-info" id="add_sub_category">Save</button>
                                         </div>
                                     </form>
                                     <!--===================================================-->
@@ -110,4 +119,4 @@
                     </div>
                     <!--===================================================-->
  <!--End page content-->
- @endsection
+@endsection

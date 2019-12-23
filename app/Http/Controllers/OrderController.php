@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Category;
-use App\SubCategory;
-Use DB;
-class CategoryController extends Controller
+
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,16 +13,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-    
-        
-        $category = Category::all();
-        
-        $subcategory =SubCategory::all();
-        
-        return view('category.index',compact('category','subcategory'));
+        return view('order.index');
+    }
 
-   
-     }
     /**
      * Show the form for creating a new resource.
      *
@@ -32,8 +23,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $categories=Category::all();
-        return view('category.create',compact('categories'));
+        //
     }
 
     /**
@@ -44,17 +34,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-
-        $category = new Category([
-            'category_name' => $request->input('category-name'),
-            'description' => $request->input('description'),
-            'isactive' => 0,
-            'updated_at'=>  date('Y-m-d H:i:s'),
-            'created_at' =>  date('Y-m-d H:i:s'),
-        ]);
-        $category->save();
-        return "sucessfull";
-
+        //
     }
 
     /**
@@ -76,10 +56,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        // $editCategorie = Category::find($id);
-        // return view('Category.edit', compact('editCategorie')); 
-
-        return view('Category.edit');
+        //
     }
 
     /**
@@ -91,12 +68,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category = Category::find($id);
-        $category['categor-name'] = $request->get('category-name');
-        $category['description'] = $request->get('description');
-        $category['isactive'] = 0;
-        $category['updated_at'] = date('Y-m-d H:i:s');
-        $category->save();
+        //
     }
 
     /**
@@ -107,7 +79,6 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::find($id);
-        $category->delete();
+        //
     }
 }

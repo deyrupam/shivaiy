@@ -16,86 +16,71 @@
                     <div id="page-content">
                         <div class="row">
                             <div class="col-sm-6">
-                                <div class="panel">
+                            <div class="panel">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title">Product Category List</h3>
+                                        <h3 class="panel-title">All Category</h3>
                                     </div>
-                                    <!-- Foo Table - Row Toggler -->
+                                    <!-- Foo Table - Pagination -->
                                     <!--===================================================-->
                                     <div class="panel-body">
-                                        <table id="demo-foo-row-toggler" class="table toggle-arrow-small">
+                                        <label class="form-inline">
+                                            Show
+                                            <select id="demo-show-entries" class="form-control input-sm">
+                                                <option value="5">5</option>
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                            </select>
+                                            entries
+                                        </label>
+                                        <table id="demo-foo-pagination" class="table toggle-arrow-small" data-page-size="5">
                                             <thead>
                                                 <tr>
-                                                    <th data-toggle="true">Name</th>
-                                                    <th>Sub Category</th>
-                                                    <th data-hide="all">Job Title</th>
-                                                    <th data-hide="all">DOB</th>
-                                                    <th data-hide="all">Status</th>
+                                                    <th data-toggle="true">Category Name</th>
+                                                    <th>Option</th>
+                                                    <th data-hide="all">Description</th>
+                                                    <th data-hide="all">Published</th>
+                                                    <th data-hide="all"></th>
+                                                    
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach($category as $cate)
                                                 <tr>
-                                                    <td>Albert</td>
-                                                    <td>Desouza</td>
-                                                    <td>System Architect</td>
-                                                    <td>22 Jun 1972</td>
+                                                    <td>{{ $cate->category_name }}</td>
+                                                    <td><a href="#"> <i class="fa fa-edit"></i>edit</span> </a><a href="#"> <i class="fa fa-trash"></i>Delete</span> </a></td>
+                                                    <td>{{ $cate->description }}</td>
+                                                    <td>{{ $cate->created_at }}</td>
+                                                    @if($cate->isactive==true)
                                                     <td><span class="label label-table label-success">Active</span></td>
+                                                    @else
+                                                    <td><span class="label label-table label-dark">Deactive</span></td>
+                                                    @endif
+                                                    
                                                 </tr>
-                                                <tr>
-                                                    <td>Teresa </td>
-                                                    <td>L. Doe</td>
-                                                    <td>Pre-Sales Support</td>
-                                                    <td>3 Oct 1981</td>
-                                                    <td><span class="label label-table label-dark">Disabled</span></td>
-                                                </tr>
+                                                @endforeach
                                                 
                                             </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="5">
+                                                        <div class="text-right">
+                                                            <ul class="pagination"></ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
                                         </table>
                                     </div>
                                     <!--===================================================-->
-                                    <!-- End Foo Table - Row Toggler -->
+                                    <!-- End Foo Table - Pagination -->
                                 </div>
-                                <div class="panel">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title"> Product Sub Category</h3>
-                                    </div>
-                                    <!-- Foo Table - Accordion -->
-                                    <!--===================================================-->
-                                    <div class="panel-body">
-                                        <table id="demo-foo-accordion" class="table toggle-arrow-small">
-                                            <thead>
-                                                <tr>
-                                                    <th data-toggle="true">Name</th>
-                                                    <th>Category </th>
-                                                    <th data-hide="all">Job Title</th>
-                                                    <th data-hide="all">Status</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Albert</td>
-                                                    <td>Desouza</td>
-                                                    <td>System Architect</td>
-                                                    <td><span class="label label-table label-success">Active</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Teresa </td>
-                                                    <td>L. Doe</td>
-                                                    <td>Pre-Sales Support</td>
-                                                    <td><span class="label label-table label-dark">Disabled</span></td>
-                                                </tr>
-                                                
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <!--===================================================-->
-                                    <!-- End Foo Table - Accordion -->
-                                </div>
+                                
                             </div>
                             <div class="col-sm-6">
                                 <div class="panel">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title">Not for currently</h3>
+                                        <h3 class="panel-title">All Sub Category</h3>
                                     </div>
                                     <!-- Foo Table - Expand / Collapse All Rows -->
                                     <!--===================================================-->
@@ -170,194 +155,12 @@
                                     <!--===================================================-->
                                     <!-- End Foo Table - Expand / Collapse All Rows -->
                                 </div>
-                                <div class="panel">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">Pagination</h3>
-                                    </div>
-                                    <!-- Foo Table - Pagination -->
-                                    <!--===================================================-->
-                                    <div class="panel-body">
-                                        <label class="form-inline">
-                                            Show
-                                            <select id="demo-show-entries" class="form-control input-sm">
-                                                <option value="5">5</option>
-                                                <option value="10">10</option>
-                                                <option value="15">15</option>
-                                                <option value="20">20</option>
-                                            </select>
-                                            entries
-                                        </label>
-                                        <table id="demo-foo-pagination" class="table toggle-arrow-small" data-page-size="5">
-                                            <thead>
-                                                <tr>
-                                                    <th data-toggle="true">First Name</th>
-                                                    <th>Last Name</th>
-                                                    <th data-hide="all">Job Title</th>
-                                                    <th data-hide="all">DOB</th>
-                                                    <th data-hide="all">Status</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Isidra</td>
-                                                    <td>Boudreaux</td>
-                                                    <td>Traffic Court Referee</td>
-                                                    <td>22 Jun 1972</td>
-                                                    <td><span class="label label-table label-success">Active</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Shona</td>
-                                                    <td>Woldt</td>
-                                                    <td>Airline Transport Pilot</td>
-                                                    <td>3 Oct 1981</td>
-                                                    <td><span class="label label-table label-dark">Disabled</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Granville</td>
-                                                    <td>Leonardo</td>
-                                                    <td>Business Services Sales Representative</td>
-                                                    <td>19 Apr 1969</td>
-                                                    <td><span class="label label-table label-danger">Suspended</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Easer</td>
-                                                    <td>Dragoo</td>
-                                                    <td>Drywall Stripper</td>
-                                                    <td>13 Dec 1977</td>
-                                                    <td><span class="label label-table label-success">Active</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Maple</td>
-                                                    <td>Halladay</td>
-                                                    <td>Aviation Tactical Readiness Officer</td>
-                                                    <td>30 Dec 1991</td>
-                                                    <td><span class="label label-table label-danger">Suspended</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Maxine</td>
-                                                    <td><a href="#">Woldt</a></td>
-                                                    <td><a href="#">Business Services Sales Representative</a></td>
-                                                    <td>17 Oct 1987</td>
-                                                    <td><span class="label label-table label-dark">Disabled</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Lorraine</td>
-                                                    <td>Mcgaughy</td>
-                                                    <td>Hemodialysis Technician</td>
-                                                    <td>11 Nov 1983</td>
-                                                    <td><span class="label label-table label-dark">Disabled</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Lizzee</td>
-                                                    <td><a href="#">Goodlow</a></td>
-                                                    <td>Technical Services Librarian</td>
-                                                    <td>1 Nov 1961</td>
-                                                    <td><span class="label label-table label-danger">Suspended</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Judi</td>
-                                                    <td>Badgett</td>
-                                                    <td>Electrical Lineworker</td>
-                                                    <td>23 Jun 1981</td>
-                                                    <td><span class="label label-table label-success">Active</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Lauri</td>
-                                                    <td>Hyland</td>
-                                                    <td>Blackjack Supervisor</td>
-                                                    <td>15 Nov 1985</td>
-                                                    <td><span class="label label-table label-danger">Suspended</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Isidra</td>
-                                                    <td>Boudreaux</td>
-                                                    <td>Traffic Court Referee</td>
-                                                    <td>22 Jun 1972</td>
-                                                    <td><span class="label label-table label-success">Active</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Shona</td>
-                                                    <td>Woldt</td>
-                                                    <td>Airline Transport Pilot</td>
-                                                    <td>3 Oct 1981</td>
-                                                    <td><span class="label label-table label-dark">Disabled</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Granville</td>
-                                                    <td>Leonardo</td>
-                                                    <td>Business Services Sales Representative</td>
-                                                    <td>19 Apr 1969</td>
-                                                    <td><span class="label label-table label-danger">Suspended</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Easer</td>
-                                                    <td>Dragoo</td>
-                                                    <td>Drywall Stripper</td>
-                                                    <td>13 Dec 1977</td>
-                                                    <td><span class="label label-table label-success">Active</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Maple</td>
-                                                    <td>Halladay</td>
-                                                    <td>Aviation Tactical Readiness Officer</td>
-                                                    <td>30 Dec 1991</td>
-                                                    <td><span class="label label-table label-danger">Suspended</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Maxine</td>
-                                                    <td><a href="#">Woldt</a></td>
-                                                    <td><a href="#">Business Services Sales Representative</a></td>
-                                                    <td>17 Oct 1987</td>
-                                                    <td><span class="label label-table label-dark">Disabled</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Lorraine</td>
-                                                    <td>Mcgaughy</td>
-                                                    <td>Hemodialysis Technician</td>
-                                                    <td>11 Nov 1983</td>
-                                                    <td><span class="label label-table label-dark">Disabled</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Lizzee</td>
-                                                    <td><a href="#">Goodlow</a></td>
-                                                    <td>Technical Services Librarian</td>
-                                                    <td>1 Nov 1961</td>
-                                                    <td><span class="label label-table label-danger">Suspended</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Judi</td>
-                                                    <td>Badgett</td>
-                                                    <td>Electrical Lineworker</td>
-                                                    <td>23 Jun 1981</td>
-                                                    <td><span class="label label-table label-success">Active</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Lauri</td>
-                                                    <td>Hyland</td>
-                                                    <td>Blackjack Supervisor</td>
-                                                    <td>15 Nov 1985</td>
-                                                    <td><span class="label label-table label-danger">Suspended</span></td>
-                                                </tr>
-                                            </tbody>
-                                            <tfoot>
-                                                <tr>
-                                                    <td colspan="5">
-                                                        <div class="text-right">
-                                                            <ul class="pagination"></ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tfoot>
-                                        </table>
-                                    </div>
-                                    <!--===================================================-->
-                                    <!-- End Foo Table - Pagination -->
-                                </div>
+                                
                             </div>
                         </div>
                         <div class="panel">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Filtering</h3>
+                                <h3 class="panel-title">All Sub Category</h3>
                             </div>
                             <div class="panel-body">
                                     <div class="pad-btm form-inline">
@@ -385,63 +188,24 @@
                                 <table id="demo-foo-filtering" class="table table-bordered table-hover toggle-circle" data-page-size="7">
                                     <thead>
                                         <tr>
-                                            <th data-toggle="true">First Name</th>
-                                            <th>Last Name</th>
-                                            <th data-hide="phone, tablet">Job Title</th>
-                                            <th data-hide="phone, tablet">DOB</th>
-                                            <th data-hide="phone, tablet">Status</th>
+                                            <th data-toggle="true">Sub Category</th>
+                                            <th data-hide="phone, tablet">Category</th>
+                                            <th data-hide="phone, tablet">published</th>
+                                            
+                                            <th data-hide="phone, tablet">Opertion</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach($subcategory as $subcate)
                                         <tr>
-                                            <td>Albert</td>
-                                            <td>Desouza</td>
-                                            <td>System Architect</td>
-                                            <td>22 Jun 1972</td>
+                                            <td>{{ $subcate->name }}</td>
+                                            <td>{{ $subcate->category->category_name}}</td>
+                                            <td>{{ $subcate->created_at }}</td>
+                                            
+                                            <td><a href="#"> <i class="fa fa-edit"></i>edit</span> </a><a href="#"> <i class="fa fa-trash"></i>edit</span> </a></td>
                                             <td><span class="label label-table label-success">Active</span></td>
                                         </tr>
-                                        <tr>
-                                            <td>Teresa </td>
-                                            <td>L. Doe</td>
-                                            <td>Pre-Sales Support</td>
-                                            <td>3 Oct 1981</td>
-                                            <td><span class="label label-table label-dark">Disabled</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Veronica </td>
-                                            <td>Gusikowski</td>
-                                            <td>Civil Engineer/td> 
-                                            <td>19 Apr 1969</td>
-                                            <td><span class="label label-table label-danger">Suspended</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bruce </td>
-                                            <td>Rogahn</td>
-                                            <td>CEO</td>
-                                            <td>13 Dec 1977</td>
-                                            <td><span class="label label-table label-success">Active</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Semantha</td>
-                                            <td>Halladay</td>
-                                            <td>Junior Technical Assistant</td>
-                                            <td>30 Dec 1991</td>
-                                            <td><span class="label label-table label-danger">Suspended</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Stevan </td>
-                                            <td>Hickle</td>
-                                            <td>Business Services Sales Representative</td>
-                                            <td>17 Oct 1987</td>
-                                            <td><span class="label label-table label-dark">Disabled</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Carolina </td>
-                                            <td>Hickle</td>
-                                            <td>Business Services Sales Representative</td>
-                                            <td>17 Oct 1987</td>
-                                            <td><span class="label label-table label-dark">Disabled</span></td>
-                                        </tr>
+                                        @endforeach 
                                     </tbody>
                                     <tfoot>
                                         <tr>

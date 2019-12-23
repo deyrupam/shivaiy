@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::resource('/category', 'CategoryController');
+//Route::resource('/category', 'CategoryController');
 
 Route::resource('/subcategory', 'SubCategoryController');
 // Route::get('/category', 'CategoryController@index');
@@ -31,3 +31,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('product', 'ProductsController@index');
 
+Route::group(['prefix'=>'category'],function(){
+    Route::get('/', 'CategoryController@index');
+    Route::get('/add', 'CategoryController@create');
+    Route::post('/save','CategoryController@store');
+    Route::get('/edit/{id}','CategoryController@edit');
+    Route::post('/update/{id}','CategoryController@update');
+});
+Route::get('order/','OrderController@index');
