@@ -39,3 +39,12 @@ Route::group(['prefix'=>'category'],function(){
     Route::post('/update/{id}','CategoryController@update');
 });
 Route::get('order/','OrderController@index');
+
+
+// New Rotes
+Route::get('/product','ProductController@index');
+Route::post('/getsubcategory','ProductController@getdata');
+Route::post('/addproduct','ProductController@store');
+Route::post('/delproduct','ProductController@delete');
+Route::post('/getproductdetail','ProductController@view');
+Route::post('/updateproduct','ProductController@update');

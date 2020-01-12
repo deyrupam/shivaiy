@@ -15,16 +15,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-    
-        
         $category = Category::all();
-        
         $subcategory =SubCategory::all();
-        
-        return view('category.index',compact('category','subcategory'));
-
-   
-     }
+        return view('Category.index',compact('category','subcategory'));
+    }
     /**
      * Show the form for creating a new resource.
      *

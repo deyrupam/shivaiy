@@ -9,8 +9,11 @@
         <!--STYLESHEET-->
         <!--=================================================-->
         <!--Roboto Slab Font [ OPTIONAL ] -->
-        <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700" rel="stylesheet">
-        <link href="http://fonts.googleapis.com/css?family=Roboto:500,400italic,100,700italic,300,700,500italic,400" rel="stylesheet">
+  
+       <!-- comment 9 jan 2020 -->
+       <!-- <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700" rel="stylesheet">
+       <link href="http://fonts.googleapis.com/css?family=Roboto:500,400italic,100,700italic,300,700,500italic,400" rel="stylesheet"> -->
+       
         <!--Bootstrap Stylesheet [ REQUIRED ]-->
         <link href="{{ url('assets/css/bootstrap.min.css') }}" rel="stylesheet">
         <!--Jasmine Stylesheet [ REQUIRED ]-->
@@ -90,7 +93,7 @@
                                                 <!-- Dropdown list-->
                                                 <li>
                                                     <a href="#" class="media">
-                                                        <div class="media-left"> <img src="img/av2.png" alt="Profile Picture" class="img-circle img-sm"> </div>
+                                                        <div class="media-left"> <img src="{{ url('assets/img/av2.png') }}" alt="Profile Picture" class="img-circle img-sm"> </div>
                                                         <div class="media-body">
                                                             <div class="text-nowrap">Andy sent you a message</div>
                                                             <small class="text-muted">15 minutes ago</small> 
@@ -100,7 +103,7 @@
                                                 <!-- Dropdown list-->
                                                 <li>
                                                     <a href="#" class="media">
-                                                        <div class="media-left"> <img src="img/av4.png" alt="Profile Picture" class="img-circle img-sm"> </div>
+                                                        <div class="media-left"> <img src="{{ url('assets/img/av4.png') }}" alt="Profile Picture" class="img-circle img-sm"> </div>
                                                         <div class="media-body">
                                                             <div class="text-nowrap">Lucy sent you a message</div>
                                                             <small class="text-muted">30 minutes ago</small> 
@@ -110,7 +113,7 @@
                                                 <!-- Dropdown list-->
                                                 <li>
                                                     <a href="#" class="media">
-                                                        <div class="media-left"> <img src="img/av3.png" alt="Profile Picture" class="img-circle img-sm"> </div>
+                                                        <div class="media-left"> <img src="{{ url('assets/img/av3.png') }}" alt="Profile Picture" class="img-circle img-sm"> </div>
                                                         <div class="media-body">
                                                             <div class="text-nowrap">Jackson sent you a message</div>
                                                             <small class="text-muted">40 minutes ago</small> 
@@ -120,7 +123,7 @@
                                                 <!-- Dropdown list-->
                                                 <li>
                                                     <a href="#" class="media">
-                                                        <div class="media-left"> <img src="img/av6.png" alt="Profile Picture" class="img-circle img-sm"> </div>
+                                                        <div class="media-left"> <img src="{{ url('assets/img/av6.png') }}" alt="Profile Picture" class="img-circle img-sm"> </div>
                                                         <div class="media-body">
                                                             <div class="text-nowrap">Donna sent you a message</div>
                                                             <small class="text-muted">5 hours ago</small> 
@@ -130,7 +133,7 @@
                                                 <!-- Dropdown list-->
                                                 <li>
                                                     <a href="#" class="media">
-                                                        <div class="media-left"> <img src="img/av4.png" alt="Profile Picture" class="img-circle img-sm"> </div>
+                                                        <div class="media-left"> <img src="{{ url('assets/img/av2.png') }}" alt="Profile Picture" class="img-circle img-sm"> </div>
                                                         <div class="media-body">
                                                             <div class="text-nowrap">Lucy sent you a message</div>
                                                             <small class="text-muted">Yesterday</small> 
@@ -140,7 +143,7 @@
                                                 <!-- Dropdown list-->
                                                 <li>
                                                     <a href="#" class="media">
-                                                        <div class="media-left"> <img src="img/av3.png" alt="Profile Picture" class="img-circle img-sm"> </div>
+                                                        <div class="media-left"> <img src="{{ url('assets/img/av2.png') }}" alt="Profile Picture" class="img-circle img-sm"> </div>
                                                         <div class="media-body">
                                                             <div class="text-nowrap">Jackson sent you a message</div>
                                                             <small class="text-muted">Yesterday</small> 
@@ -660,7 +663,7 @@
                                         <div class="list-group bg-trans">
                                             <div class="list-group-item">
                                                 <div class="pull-left avatar mar-rgt">
-                                                <img src="img/av1.png" alt="" class="img-sm">
+                                                <img src="{{ url('assets/img/av1.png') }}" alt="" class="img-sm">
                                                 <i class="on bottom text-light"></i>
                                                 </div>
                                                 <div class="inline-block">
@@ -670,7 +673,7 @@
                                             </div>
                                             <div class="list-group-item">
                                                 <div class="pull-left avatar mar-rgt">
-                                                <img src="img/av2.png" alt="" class="img-sm">
+                                                <img src="{{ url('assets/img/av2.png') }}" alt="" class="img-sm">
                                                 <i class="on bottom text-light"></i>
                                                 </div>
                                                 <div class="inline-block pad-ver-5">
@@ -680,7 +683,7 @@
                                             </div>
                                             <div class="list-group-item">
                                                 <div class="pull-left avatar mar-rgt">
-                                                <img src="img/av3.png" alt="" class="img-sm">
+                                                <img src="{{ url('assets/img/av3.png') }}" alt="" class="img-sm">
                                                 <i class="on bottom text-light"></i>
                                                 </div>
                                                 <div class="inline-block">
@@ -690,7 +693,7 @@
                                             </div>
                                             <div class="list-group-item">
                                                 <div class="pull-left avatar mar-rgt">
-                                                <img src="img/av7.png" alt="" class="img-sm">
+                                                <img src="{{ url('assets/img/av7.png') }}" alt="" class="img-sm">
                                                 <i class="on bottom text-light"></i>
                                                 </div>
                                                 <div class="inline-block">
@@ -700,7 +703,7 @@
                                             </div>
                                             <div class="list-group-item">
                                                 <div class="pull-left avatar mar-rgt">
-                                                <img src="img/av4.png" alt="" class="img-sm">
+                                                <img src="{{ url('assets/img/av4.png') }}" alt="" class="img-sm">
                                                 <i class="on bottom text-light"></i>
                                                 </div>
                                                 <div class="inline-block">
@@ -710,7 +713,7 @@
                                             </div>
                                             <div class="list-group-item">
                                                 <div class="pull-left avatar mar-rgt">
-                                                <img src="img/av5.png" alt="" class="img-sm">
+                                                <img src="{{ url('assets/img/av6.png') }}" alt="" class="img-sm">
                                                 <i class="on bottom text-light"></i>
                                                 </div>
                                                 <div class="inline-block">
@@ -724,7 +727,7 @@
                                         <div class="list-group bg-trans">
                                             <div class="list-group-item">
                                                 <div class="pull-left avatar mar-rgt">
-                                                <img src="img/av1.png" alt="" class="img-sm">
+                                                <img src="{{ url('assets/img/av2.png') }}" alt="" class="img-sm">
                                                 <i class="busy bottom text-light"></i>
                                                 </div>
                                                 <div class="inline-block">
@@ -734,7 +737,7 @@
                                             </div>
                                             <div class="list-group-item">
                                                 <div class="pull-left avatar mar-rgt">
-                                                <img src="img/av2.png" alt="" class="img-sm">
+                                                <img src="{{ url('assets/img/av2.png') }}" alt="" class="img-sm">
                                                 <i class="busy bottom text-light"></i>
                                                 </div>
                                                 <div class="inline-block">
@@ -744,7 +747,7 @@
                                             </div>
                                             <div class="list-group-item">
                                                 <div class="pull-left avatar mar-rgt">
-                                                <img src="img/av3.png" alt="" class="img-sm">
+                                                <img src="{{ url('assets/img/av3.png') }}" alt="" class="img-sm">
                                                 <i class="busy bottom text-light"></i>
                                                 </div>
                                                 <div class="inline-block">
@@ -754,7 +757,7 @@
                                             </div>
                                             <div class="list-group-item">
                                                 <div class="pull-left avatar mar-rgt">
-                                                <img src="img/av7.png" alt="" class="img-sm">
+                                                <img src="{{ url('assets/img/av7.png') }}" alt="" class="img-sm">
                                                 <i class="busy bottom text-light"></i>
                                                 </div>
                                                 <div class="inline-block">
@@ -768,7 +771,7 @@
                                         <div class="list-group bg-trans">
                                             <div class="list-group-item">
                                                 <div class="pull-left avatar mar-rgt">
-                                                <img src="img/av1.png" alt="" class="img-sm">
+                                                <img src="{{ url('assets/img/av1.png') }}" alt="" class="img-sm">
                                                 <i class="off bottom text-light"></i>
                                                 </div>
                                                 <div class="inline-block pad-ver-5">
@@ -778,7 +781,7 @@
                                             </div>
                                             <div class="list-group-item">
                                                 <div class="pull-left avatar mar-rgt">
-                                                <img src="img/av2.png" alt="" class="img-sm">
+                                                <img src="{{ url('assets/img/av2.png') }}" alt="" class="img-sm">
                                                 <i class="off bottom text-light"></i>
                                                 </div>
                                                 <div class="inline-block pad-ver-5">
@@ -788,7 +791,7 @@
                                             </div>
                                             <div class="list-group-item">
                                                 <div class="pull-left avatar mar-rgt">
-                                                <img src="img/av3.png" alt="" class="img-sm">
+                                                <img src="{{ url('assets/img/av3.png') }}" alt="" class="img-sm">
                                                 <i class="off bottom text-light"></i>
                                                 </div>
                                                 <div class="inline-block pad-ver-5">
@@ -798,7 +801,7 @@
                                             </div>
                                             <div class="list-group-item">
                                                 <div class="pull-left avatar mar-rgt">
-                                                <img src="img/av7.png" alt="" class="img-sm">
+                                                <img src="{{ url('assets/img/av2.png') }}" alt="" class="img-sm">
                                                 <i class="off bottom text-light"></i>
                                                 </div>
                                                 <div class="inline-block">
@@ -944,7 +947,7 @@
         <!--Jasmine Admin [ RECOMMENDED ]-->
         <script src="{{ url('assets/js/scripts.js') }}"></script>
         <!--Switchery [ OPTIONAL ]-->
-        <script src="{{ url('assets/plugins/switchery/switchery.min.js') }}"></script>
+       <!-- <script src="{{ url('assets/plugins/switchery/switchery.min.js') }}"></script>-->
         <!--Jquery Steps [ OPTIONAL ]-->
         <script src="{{ url('assets/plugins/parsley/parsley.min.js') }}"></script>
         <!--Jquery Steps [ OPTIONAL ]-->
@@ -962,15 +965,16 @@
         <!--Form Wizard [ SAMPLE ]-->
         <script src="{{ url('assets/js/demo/wizard.js') }}"></script>
         <!--Demo script [ DEMONSTRATION ]-->
-        <script src="{{ url('assets/js/demo/jasmine.js') }}"></script>
+        <!--  <script src="{{ url('assets/js/demo/jasmine.js') }}"></script>-->
         <!--Form Wizard [ SAMPLE ]-->
         <script src="{{ url('assets/js/demo/form-wizard.js') }}"></script>
 
         <script src="{{ url('assets/plugins/fooTable/dist/footable.all.min.js') }}"></script>
         <script src="{{url('assets/js/demo/tables-footable.js') }}"></script>
 
-        <script src="{{url('assets/js/demo/form-switchery.js') }}"></script>
+      <!--  <script src="{{url('assets/js/demo/form-switchery.js') }}"></script>-->
         <script src="{{url('assets/js/main.js') }}"></script>
+        <script src="js/product.js"></script> 
 
 
     </body>

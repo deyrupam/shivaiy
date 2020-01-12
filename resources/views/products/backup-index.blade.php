@@ -1,9 +1,14 @@
-@extends('layouts.mainlayout')
-
-@section('content')
-<style>
- .error{ color:red; }
- .alert-warning,.alert-success
+@extends('layout.product')
+@section('body')
+<style type="text/css">
+  .addbtn{
+   font-size: 14px !important;
+ }
+ .error{
+  color: red;
+  font-size: 13px;
+}
+.alert-warning,.alert-success
 { 
     display: none;
     position: fixed;
@@ -19,108 +24,70 @@
     right: 0;    
 } 
 </style>
+
 <div class="alert alert-success msgbox">
-<strong><center class="message">success</center></strong>  
+<strong><center class="message"></center></strong>  
 </div>
-<div class="pageheader">
-                        <h3><i class="fa fa-home"></i>Product</h3>
-                        <div class="breadcrumb-wrapper">
-                            <span class="label">You are here:</span>
-                            <ol class="breadcrumb">
-                                <li> <a href="#"> Home </a> </li>
-                                <li class="active"> footable </li>
-                            </ol>
-                        </div>
-                    </div>
-                    <!--Page content-->
-                    <!--===================================================-->
-                    <div id="page-content">
-                    <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
-                      <div class="panel">
-                           <div class="panel-heading">
-                                <h3 class="panel-title">All Product</h3>
-                                <button type="button" data-toggle="modal" data-target="#AddModal" class="btn btn-success" style="float:right; margin-top:-40px; margin-right:40px;">Add New</button>
-                            </div>
-                            <div class="panel-body">
-                                    <div class="pad-btm form-inline">
-                                        <div class="row">
-                                            <div class="col-sm-3 text-xs-center">
-                                                <div class="form-group">
-                                                    <label class="control-label">Status</label>
-                                                    <select class="form-control action">
-                                                        <option value="">Actions</option>
-                                                        <option value="all">Show all</option>
-                                                        <option value="active">Active</option>
-                                                        <option value="disabled">Disabled</option>
-                                                        <option value="suspended">Suspended</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3 text-xs-center">
-                                              <button style="display:none;" class="btn btn-default fa fa-trash hidd-div" value="6"></button>
-                                             
-                                            </div>
-                                            <div class="col-sm-6 text-xs-center text-right">
-                                                <div class="form-group">
-                                                    <input id="demo-foo-search" type="text" placeholder="Search" class="form-control" autocomplete="off">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <!-- Foo Table - Filtering -->
-                                <!--===================================================-->
-                                <table id="demo-foo-filtering" class="table table-bordered table-hover toggle-circle" data-page-size="4">
-                                    <thead>
-                                        <tr>
-                                        <th><input type="checkbox"></th>
-                                        <th>Image         </th>
-                                        <th>Category      </th>
-                                        <th>Name          </th>
-                                        <th>Title         </th>
-                                        <th>Price         </th>
-                                        <th>Action        </th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                    @if($products)
-                                    <?php $serial = 1; ?>
-                                     @foreach($products as $product)
-                                        <tr>
-                                          <td><input type="checkbox" class="act_check" value="{{ $product->id }}"></td>
-                                          <td><a href="javascript:void(0)" data-toggle="modal" data-target="#lightboxModal"><img src="{{ url('/') }}/uploads/{{ $product->image }}"  alt="Cinque Terre" width="50" height="50" style="border-radius: 50%;"></a></td>
-                                          <td>{{ $product->category }}</td>
-                                          <td>{{ $product->product_name }}</td>
-                                          <td>{{ $product->product_short_desc }}</td>
-                                          <td>{{ $product->product_selling_price }}</td>
-                                          <td class="footable-visible">
-                                                <button class="btn btn-default fa fa-eye-slash" data-toggle="modal" form_key="view" product_id="{{ $product->id }}" id="viewbtn" data-target="#ViewModal"></button>
-                                                <button class="btn btn-default fa fa-edit" form_key="edit" product_id="{{ $product->id }}" data-toggle="modal" id="editbtn" data-target="#EditModal"></button>
-                                                <button class="btn btn-default fa fa-trash" data-toggle="modal"  product_id="{{ $product->id }}" id="delbtn" data-target="#DelModal" value="6"></button>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                    @endif
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td colspan="5">
-                                                <div class="text-right">
-                                                    <ul class="pagination"></ul>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                                <!--===================================================-->
-                                <!-- End Foo Table - Filtering -->
-                            </div>
-                        </div>
-                       
-                    </div>
+
+<div class="container-fluid">
+  <div class="row">
+   <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+   <div>
+    <table class="table table-dark">
+      <thead>
+        <tr>
+         <th>S.No          </th>
+         <th>Image         </th>
+         <th>Category      </th>
+         <th>Sub-Category  </th>
+         <th>Name          </th>
+         <th>Title         </th>
+         <th>Description   </th>
+         <th>Weight        </th>
+         <th>Sku           </th>
+         <th>Price         </th>
+         <th>Selling Price </th>
+         <th>Stock         </th>
+         <th>Action        </th>
+         <th><button type="button" data-toggle="modal" data-target="#AddModal" form_key="add" class="btn btn-success addbtn">Add-New</button></th>
+       </tr>
+     </thead>
+     <tbody class="product-list">
+      @if($products)
+      <?php $serial = 1; ?>
+      @foreach($products as $product)
+      <tr>
+        <td scope="row">{{ $serial++ }}</td>
+        <td><a href="javascript:void(0)" data-toggle="modal" data-target="#lightboxModal"><img src="{{ url('/') }}/uploads/{{ $product->image }}"  alt="Cinque Terre" width="50" height="50" style="border-radius: 50%;"></a></td>
+        <td>{{ $product->category }}</td>
+        <td>{{ $product->sub_category }}</td>
+        <td>{{ $product->product_name }}</td>
+        <td>{{ $product->product_short_desc }}</td>
+        <td>{{ $product->product_desc }}</td>
+        <td>{{ $product->product_weight }}</td>
+        <td>{{ $product->product_sku }}</td>
+        <td>{{ $product->product_org_price }}</td>
+        <td>{{ $product->product_selling_price }}</td>
+        <td>{{ $product->product_stock }}</td>
+        <td><a href="javascript:void(0)" form_key="edit" product_id="{{ $product->id }}" data-toggle="modal" id="editbtn" data-target="#EditModal"><i class="fas fa-edit"  style="color:black;"></i></a>
+          <a href="javascript:void(0)" data-toggle="modal" form_key="view" product_id="{{ $product->id }}" id="viewbtn" data-target="#ViewModal"><i class="fas fa-eye" ></i></a>
+          <a href="javascript:void(0)" product_id="{{ $product->id }}" data-toggle="modal" id="delbtn" data-target="#deletemodal"><i class="fa fa-trash" style="color:black;"></i></a>
+        </td>
+
+      </tr>
+      @endforeach
+      @endif
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+
+
 
 <!-- ADD Product Modal -->
 <div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
- <div class="modal-dialog modal-lg" role="document">
+ <div class="modal-dialog modal-xl" role="document">
    <div class="modal-content">
      <div class="modal-header">
        <h5 class="modal-title" id="exampleModalLabel">Add New Product</h5>
@@ -214,13 +181,57 @@
 </div>  
 
 
+<!-- LightBox Modal -->
+<!--begin modal window-->
+<div class="modal fade" id="lightboxModal">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<div class="pull-left">My Gallery Title</div>
+<button type="button" class="close" data-dismiss="modal" title="Close"> <span class="glyphicon glyphicon-remove"></span></button>
+</div>
+<div class="modal-body">
 
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="http://127.0.0.1:8000/uploads/testing.webp" alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="http://127.0.0.1:8000/uploads/testing.webp" alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="http://127.0.0.1:8000/uploads/testing.webp" alt="Third slide">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+<!--CAROUSEL CODE GOES HERE-->
+
+<!--end modal-body--></div>
+<div class="modal-footer">
+<div class="pull-left">
+<small>Photographs by <a href="https://placeimg.com" target="new">placeimg.com</a></small>
+</div>
+<button class="btn-sm close" type="button" data-dismiss="modal">Close</button>
+<!--end modal-footer--></div>
+<!--end modal-content--></div>
+<!--end modal-dialoge--></div>
+<!--end myModal-->></div>
 
 
 
 <!-- View Product Modal -->
 <div class="modal fade" id="ViewModal" tabindex="-1" role="dialog" aria-labelledby="ViewModalLabel" aria-hidden="true">
- <div class="modal-dialog modal-lg" role="document">
+ <div class="modal-dialog modal-xl" role="document">
    <div class="modal-content">
      <div class="modal-header">
        <h5 class="modal-title" id="ViewModalLabel">View Product Detail</h5>
@@ -299,11 +310,9 @@
 
 
 
-
-
 <!-- Edit Product Modal -->
 <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
- <div class="modal-dialog modal-lg" role="document">
+ <div class="modal-dialog modal-xl" role="document">
    <div class="modal-content">
      <div class="modal-header">
        <h5 class="modal-title" id="exampleModalLabel">Edit Product</h5>
@@ -313,7 +322,7 @@
      </div>
      <div class="modal-body">
       <form action="/update"  id="updateform" method="post" enctype="multipart/form-data">
-           <input type="hidden" name="product_id" class="updproid">
+           <input type="hidden" name="id">
         <div class="row">
           <div class="col-md-6">
            <div class="form-group">
@@ -393,31 +402,9 @@
 </div>
 </div>
 </div>
-</div> 
+</div>  
 
-<!-- Delete Product Modal -->
-<div class="modal fade" id="DelModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
- <div class="modal-dialog modal-xl" role="document">
-   <div class="modal-content">
-     <div class="modal-header">
-       <h5 class="modal-title" id="exampleModalLabel">Delete Product</h5>
-       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-       </button>
-     </div>
-     <div class="modal-body">
-      <p>Are You Sure Want to Delete Selected Product !</p>
-      <input type="hidden" class="product_id">
-     </div>
-<div class="modal-footer">
- <input  type="submit"  class="btn btn-danger delpro" value="Delete">
- <button type="button" class="btn btn-secondary" data-dismiss="modal">
- Close</button>
-</div>
-</div>
-</div>
-</div> 
 
-                    <!--===================================================-->
-                    <!--End page content-->
- @endsection
+
+
+@endsection
